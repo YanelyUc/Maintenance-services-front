@@ -1,0 +1,38 @@
+<h1>Detail Service <%= @service['id'] %></h1>
+
+<ul class="collection">
+    <li class="collection-item">
+      <div style="display: flex; align-items: center;">
+        <span style="font-weight: bold; font-size: 25px;", class="title">Id:</span>
+        <p style = "font-size: 25px; margin-left: 15px;"> <%= @service['id']%> </p>
+      </div>
+    </li>
+    <li class="collection-item">
+      <div style="display: flex; align-items: center;">
+        <span style="font-weight: bold; font-size: 25px;", class="title">Description:</span>
+        <p style = "font-size: 25px; margin-left: 15px;"> <%= @service['description']%> </p>
+      </div>
+    </li>
+    <li class="collection-item">
+      <div style="display: flex; align-items: center;">
+        <span style="font-weight: bold; font-size: 25px;", class="title">Status:</span>
+        <p style = "font-size: 25px; margin-left: 15px;"> <%= @service['status']%> </p>
+      </div>
+    </li>
+    <li class="collection-item">
+      <div style="display: flex; align-items: center;">
+        <span style="font-weight: bold; font-size: 25px;", class="title">Date:</span>
+        <p style = "font-size: 25px; margin-left: 15px;"> <%= @service['date']%> </p>
+      </div>
+    </li>
+    <li class="collection-item">
+      <div style="display: flex; align-items: center;">
+        <span style="font-weight: bold; font-size: 25px;", class="title">Is active:</span>
+        <p style = "font-size: 25px; margin-left: 15px;"> <%= @service['active']%> </p>
+      </div>
+    </li>
+  </ul>
+
+<br>
+<br>
+<%= link_to 'regresar', cars_path, style:"color: blue; padding:50px; margin-right: 5px; cursor:pointer;" %>

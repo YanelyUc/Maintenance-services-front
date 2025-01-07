@@ -1,0 +1,37 @@
+<script> import Swal from 'sweetalert2' </script>
+
+<h1>List Cars (<%= @cars.count %>)</h1>
+<br>
+   <%= link_to '+', new_car_path, class: "btn-floating btn-large waves-effect waves-light red" %>
+ <br>
+<table style="width:50%">
+  <tr>
+    <th style="text-align: left;">plate_number</th>
+    <th style="text-align: left;">model</th>
+    <th style="text-align: left;">year</th>
+    <th style="text-align: left;">active</th>
+    <th style="text-align: center;">actions</th>
+  </tr>
+  <% @cars.each do |car| %>
+  <tr>
+    <td><%= car['plate_number'] %></td>
+     <td><%= car['model'] %></td>
+     <td><%= car['year'] %></td>
+     <td><%= car['active'] %></td>
+     <td style="text-align: center;">
+      <%= link_to 'Ver', car_path(id: car['id']), style:"color: blue; padding:5px; margin-right: 5px; cursor:pointer" %>
+      <%= link_to 'Editar', edit_car_path(id: car['id']), style:"color: green; padding:5px; margin-right: 5px; cursor:pointer" %>
+      <%= link_to new_maintenance_service_path(car_id: car['id']), class:'btn btn-primary', data: { bs_toggle: "tooltip", bs_placement: "top" }, title: "Add maintenance_service" do %>
+        <i class="material-icons">add_circle_outline</i>
+      <% end %>
+      <% if car['active'] %>
+        <%= link_to 'Eliminar', car_path(id: car['id']), method: :destroy, data: { confirm: '¿Estás seguro de que deseas eliminar este post?' }, class: 'btn btn-danger', style:"color: red; padding:5px; margin-right: 5px; cursor:pointer" %>
+      <% end %>
+     </td>
+  </tr>
+  <% end %>  
+</table> 
+<br>
+<%= link_to 'ver registros activos', cars_path, style:"color: blue; padding:50px; margin-right: 5px; cursor:pointer;" %>
+<%= link_to 'ver registros eliminados', cars_path(filter_status: 'deleted'), style:"color: blue; padding:50px; margin-right: 5px; cursor:pointer;" %>
+<%= link_to 'ver todos los registros',  cars_path(filter_status: 'both'), style:"color: blue; padding:50px; margin-right: 5px; cursor:pointer;" %>

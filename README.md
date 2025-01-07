@@ -5,3 +5,4 @@ Para ejecutar la aplicación en local, unicamente debes ejecutar `rails s` desde
 # Consideraciones
 - Tener instalado rails
 - verificar que el puerto de ejecución sea el 3001
+

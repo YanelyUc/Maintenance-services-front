@@ -1,0 +1,26 @@
+<h1>Edit Car <%= @car['plate_number'] %></h1>
+
+<%= form_with(url: car_path(@car['id']), method: :patch, local: true) do |form| %>
+  <div>
+    <%= form.label :model, "Model" %>
+    <%= form.text_field :model, value: @car['model'] %>
+  </div>
+  <div>
+    <%= form.label :year, "Year" %>
+    <%= form.number_field :year, value: @car['year'] %>
+  </div>
+  <div>
+    <%= form.label :plate_number, "Plate number" %>
+    <%= form.text_field :plate_number, value: @car['plate_number'] %>
+  </div>
+  <div>
+    <%= form.label :active, "Is active" %>
+    <%= form.text_field :active, value: @car['active'] %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit "Update Car", class: "waves-effect waves-light btn" %>
+  </div>
+<% end %>
+
+<%= link_to 'regresar', cars_path, style:"color: blue; padding:50px; margin-right: 5px; cursor:pointer;" %>
