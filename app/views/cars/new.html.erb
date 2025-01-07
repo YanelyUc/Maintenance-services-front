@@ -1,0 +1,22 @@
+<h1>New Car </h1>
+
+<%= form_with(url: cars_path, method: :post, local: true) do |form| %>
+  <div>
+    <%= form.label :model, "Model" %>
+    <%= form.text_field :model %>
+  </div>
+  <div>
+    <%= form.label :year, "Year" %>
+    <%= form.number_field :year%>
+  </div>
+  <div>
+    <%= form.label :plate_number, "Plate number" %>
+    <%= form.text_field :plate_number%>
+  </div>
+  <br>
+  <div>
+    <%= form.submit "Create Car", class: "waves-effect waves-light btn" %>
+  </div>
+<% end %>
+
+<%= link_to 'regresar', cars_path, style:"color: blue; padding:50px; margin-right: 5px; cursor:pointer;" %>

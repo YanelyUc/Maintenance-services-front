@@ -1,0 +1,31 @@
+<h1>New Maintenance Service </h1>
+<br>
+
+<%= form_with(url: maintenance_services_path, method: :post, local: true) do |form| %>
+  <div>
+    <%= form.label :model, "Description" %>
+    <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.label :car_id, "Car id" %>
+    <%= form.text_field :car_id, value: params[:car_id], readonly: true %>
+  </div>
+  <div>
+    <%= form.label :date, "Date" %>
+    <%= form.date_field :date, class: "datepicker" %>
+  </div>
+  <div>
+    <%= form.label :status, "Status" %>
+    <%= form.select :status, options_for_select([['Pending', 'pending'], ['In Progress', 'in_progress'], ['Completed', 'completed']]), { include_blank: 'Choose your option' }, { class: 'browser-default' } %>
+  </div>
+
+  <br>
+  <div>
+    <%= form.submit "Create Service", class: "waves-effect waves-light btn" %>
+  </div>
+<% end %>
+
+<%= link_to 'regresar', cars_path, style:"color: blue; padding:50px; margin-right: 5px; cursor:pointer;" %>
+
+
+
